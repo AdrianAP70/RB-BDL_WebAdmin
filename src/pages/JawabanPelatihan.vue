@@ -75,7 +75,10 @@
                           <q-btn label="File" color="green" size="sm" class="q-ml-sm" no-caps outline @click="downloadPDF(props.row._id)"/>
                       </div>
                     </q-td>
-                      <q-btn label="Aksi" color="green" size="sm" :to="{ name:'edit_jawaban', params:{ id: props.row._id } }"  class="q-ml-sm" no-caps />
+                    <q-td key="aksi" :props="props">
+                        <q-btn round outline color="red" size="sm" icon="delete" @click="this.deleteLIST(props.row._id)" no-caps class="q-ml-sm" />
+                        <q-btn label="Aksi" color="green" size="sm" :to="{ name:'edit_jawaban', params:{ id: props.row._id } }"  class="q-ml-sm" no-caps />
+                      </q-td>
                     </q-tr>
                   </template>
 
@@ -100,7 +103,7 @@ export default {
     return {
       card: ref(false),
       pagination: {
-        rowsPerPage: 10
+        rowsPerPage: 50
       },
       options: [],
       namaCustomer: [],
@@ -185,6 +188,28 @@ export default {
       }).onOk(() => {
         try {
           this.$api.delete('/tugas/delete/' + id).then(res => {
+            if (res.data.status !== true) {
+              this.$showNotif(res.data.message, 'negative')
+            } else {
+              this.getCustomer()
+              this.$showNotif(res.data.message, 'positive')
+            }
+          })
+        } catch (e) {
+          console.log(e)
+          this.$showNotif('Terjadi kesalahan !', 'negative')
+        }
+      })
+    },
+    deleteLIST (id) {
+      this.$q.dialog({
+        title: 'Peringatan',
+        message: 'Apakah Anda Yakin ?',
+        cancel: true,
+        persistent: true
+      }).onOk(() => {
+        try {
+          this.$api.delete('/jawaban/delete/' + id).then(res => {
             if (res.data.status !== true) {
               this.$showNotif(res.data.message, 'negative')
             } else {

@@ -110,7 +110,7 @@ export default {
     return {
       card: ref(false),
       pagination: {
-        rowsPerPage: 10
+        rowsPerPage: 0
       },
       options: [],
       namaCustomer: [],

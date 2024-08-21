@@ -88,7 +88,7 @@ export default {
     return {
       card: ref(false),
       pagination: {
-        rowsPerPage: 10,
+        rowsPerPage: 50
       },
       options: [],
       namaCustomer: [],
@@ -98,9 +98,9 @@ export default {
       totalHutang: 0,
       totalLunas: 0,
       columns: [
-          { name: 'no', label: 'No', field: 'no', align: 'center' },
-          { name: 'namaKategori', required: true, label: 'namaKategori', align: 'left', field: 'namaKategori', sortable: true },
-          { name: 'aksi', label: 'Actions', field: 'aksi', align: 'center' }
+        { name: 'no', label: 'No', field: 'no', align: 'center' },
+        { name: 'namaKategori', required: true, label: 'namaKategori', align: 'left', field: 'namaKategori', sortable: true },
+        { name: 'aksi', label: 'Actions', field: 'aksi', align: 'center' }
       ],
       rows: []
     }

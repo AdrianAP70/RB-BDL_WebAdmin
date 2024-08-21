@@ -133,11 +133,11 @@
                       </q-td>
                       <q-td key="alasan" :props="props">
                         <div v-if="props.row.alasan == null">
-                          Tidak Ada Retur  
+                          Tidak Ada Retur
                         </div>
                         <div v-else>
                           {{ props.row.alasan }}
-                        </div>                        
+                        </div>
                       </q-td>
                       <q-td key="fotoretur" :props="props">
                         <div v-if="props.row.fotoretur == null" style="color: grey">
@@ -254,16 +254,16 @@
 </template>
 
 <script>
-import { ref } from "vue";
+import { ref } from 'vue'
 
 export default {
-  name: "PageIndex",
-  data() {
+  name: 'PageIndex',
+  data () {
     return {
       visibles: false,
       card: ref(false),
       pagination: {
-        rowsPerPage: 10,
+        rowsPerPage: 50
       },
       options: [],
       namaCustomer: [],
@@ -273,80 +273,80 @@ export default {
       totalHutang: 0,
       totalLunas: 0,
       columns: [
-        { name: "no", label: "No", field: "no" },
+        { name: 'no', label: 'No', field: 'no' },
         {
-          name: "userName",
+          name: 'userName',
           required: true,
-          label: "Username",
-          align: "left",
-          field: "username",
-          sortable: true,
-        },
-        {
-          name: "date",
-          required: true,
-          label: "Tanggal Pesanan",
-          align: "left",
-          field: "date",
-          sortable: true,
+          label: 'Username',
+          align: 'left',
+          field: 'username',
+          sortable: true
         },
         {
-          name: "status",
+          name: 'date',
           required: true,
-          label: "Status Pesanan",
-          align: "left",
-          field: "status",
-          sortable: true,
+          label: 'Tanggal Pesanan',
+          align: 'left',
+          field: 'date',
+          sortable: true
         },
         {
-          name: "detail",
+          name: 'status',
           required: true,
-          label: "Detail Barang",
-          align: "left",
-          field: "detail",
-          sortable: true,
+          label: 'Status Pesanan',
+          align: 'left',
+          field: 'status',
+          sortable: true
         },
         {
-          name: "grandTotal",
+          name: 'detail',
           required: true,
-          label: "Total",
-          align: "left",
-          field: "grandTotal",
-          sortable: true,
+          label: 'Detail Barang',
+          align: 'left',
+          field: 'detail',
+          sortable: true
         },
         {
-          name: "catatan",
+          name: 'grandTotal',
           required: true,
-          label: "Catatan",
-          align: "left",
-          field: "catatan",
-          sortable: true,
+          label: 'Total',
+          align: 'left',
+          field: 'grandTotal',
+          sortable: true
         },
         {
-          name: "bukti",
+          name: 'catatan',
           required: true,
-          label: "Bukti Transaksi",
-          align: "left",
-          field: "bukti",
-          sortable: true,
+          label: 'Catatan',
+          align: 'left',
+          field: 'catatan',
+          sortable: true
         },
         {
-          name: "alasan",
+          name: 'bukti',
           required: true,
-          label: "Alasan Retur",
-          align: "left",
-          field: "alasan",
-          sortable: true,
+          label: 'Bukti Transaksi',
+          align: 'left',
+          field: 'bukti',
+          sortable: true
         },
-          {
-          name: "fotoretur",
+        {
+          name: 'alasan',
           required: true,
-          label: "Foto Retur",
-          align: "left",
-          field: "fotoretur",
-          sortable: true,
+          label: 'Alasan Retur',
+          align: 'left',
+          field: 'alasan',
+          sortable: true
         },
-        { name: "aksi", label: "Actions", field: "aksi", align: "center" },
+        {
+          name: 'fotoretur',
+          required: true,
+          label: 'Foto Retur',
+          align: 'left',
+          field: 'fotoretur',
+          sortable: true
+        },
+        { name: 'aksi', label: 'Actions', field: 'aksi', align: 'center' }
       ],
       rows: [],
       detail: {
@@ -354,168 +354,168 @@ export default {
         pelanggan: null,
         grandTotal: null,
         columns: [
-          { name: "no", label: "No", field: "no" },
+          { name: 'no', label: 'No', field: 'no' },
           {
-            name: "namaBarang",
+            name: 'namaBarang',
             required: true,
-            label: "Nama Produk",
-            align: "left",
-            field: "namaBarang",
-            sortable: true,
+            label: 'Nama Produk',
+            align: 'left',
+            field: 'namaBarang',
+            sortable: true
           },
           {
-            name: "harga",
+            name: 'harga',
             required: true,
-            label: "Harga",
-            align: "left",
-            field: "harga",
-            sortable: true,
+            label: 'Harga',
+            align: 'left',
+            field: 'harga',
+            sortable: true
           },
           {
-            name: "kategori",
+            name: 'kategori',
             required: true,
-            label: "Kategori",
-            align: "left",
-            field: "kategori",
-            sortable: true,
+            label: 'Kategori',
+            align: 'left',
+            field: 'kategori',
+            sortable: true
           },
           {
-            name: "gambar",
+            name: 'gambar',
             required: true,
-            label: "Gambar",
-            align: "left",
-            field: "gambar",
-            sortable: true,
+            label: 'Gambar',
+            align: 'left',
+            field: 'gambar',
+            sortable: true
           },
           {
-            name: "subTotal",
+            name: 'subTotal',
             required: true,
-            label: "subTotal",
-            align: "left",
-            field: "subTotal",
-            sortable: true,
-          },
+            label: 'subTotal',
+            align: 'left',
+            field: 'subTotal',
+            sortable: true
+          }
         ],
-        rows: [],
+        rows: []
       },
       statusOptions: [
-        { label: "Selesai", value: "Selesai" },
-        { label: "Diterima", value: "Diterima" },
-        { label: "Ditolak", value: "Ditolak" },
-        { label: "Dalam Proses", value: "Dalam Proses" },
-        { label: "Retur", value: "Retur" },
-      ],
-    };
+        { label: 'Selesai', value: 'Selesai' },
+        { label: 'Diterima', value: 'Diterima' },
+        { label: 'Ditolak', value: 'Ditolak' },
+        { label: 'Dalam Proses', value: 'Dalam Proses' },
+        { label: 'Retur', value: 'Retur' }
+      ]
+    }
   },
-  created() {
-    this.getCustomer();
+  created () {
+    this.getCustomer()
   },
   methods: {
-    getCustomer() {
+    getCustomer () {
       try {
-        this.$api.get("transaksi/get-all-transaksi").then((res) => {
+        this.$api.get('transaksi/get-all-transaksi').then((res) => {
           if (res.data.status !== true) {
-            this.$showNotif(res.data.message, "negative");
+            this.$showNotif(res.data.message, 'negative')
           } else {
             // this.$showNotif(res.data.message, 'positive')
-            const data = res.data.data;
-            this.rows = data;
-            console.log(this.rows);
-            console.log(data[0]);
+            const data = res.data.data
+            this.rows = data
+            console.log(this.rows)
+            console.log(data[0])
           }
-        });
+        })
       } catch (e) {
-        this.$showNotif("Terjadi kesalahan !", "negative");
+        this.$showNotif('Terjadi kesalahan !', 'negative')
       }
     },
-    tampil(id) {
-      this.$refs.dialog.show((this.fotoDiri = id));
+    tampil (id) {
+      this.$refs.dialog.show((this.fotoDiri = id))
     },
-    accept(id, status) {
+    accept (id, status) {
       this.$q
         .dialog({
-          title: "Peringatan",
-          message: "Apakah Anda yakin?",
-          color: "green",
+          title: 'Peringatan',
+          message: 'Apakah Anda yakin?',
+          color: 'green',
           cancel: true,
-          persistent: true,
+          persistent: true
         })
         .onOk(() => {
           try {
             this.$api
-              .put("/transaksi/updateWeb/" + id, {
-                status,
+              .put('/transaksi/updateWeb/' + id, {
+                status
               })
               .then((res) => {
-                console.log({ res });
+                console.log({ res })
                 if (res.data.status !== true) {
                   this.$q.notify({
-                    message: "Status Gagal",
-                    color: "red",
-                  });
+                    message: 'Status Gagal',
+                    color: 'red'
+                  })
                 } else {
                   this.$q.notify({
-                    message: "Status Berhasil",
-                    color: "green",
-                  });
-                  this.getCustomer();
+                    message: 'Status Berhasil',
+                    color: 'green'
+                  })
+                  this.getCustomer()
                 }
-              });
+              })
           } catch (e) {
-            console.log(e);
-            this.$showNotif("Terjadi kesalahan!", "negative");
+            console.log(e)
+            this.$showNotif('Terjadi kesalahan!', 'negative')
           }
-        });
+        })
     },
-    reject(id) {
+    reject (id) {
       this.$q
         .dialog({
-          title: "Peringatan",
-          message: "Apakah Anda Setuju untuk menolak transaksi?",
-          color: "red",
+          title: 'Peringatan',
+          message: 'Apakah Anda Setuju untuk menolak transaksi?',
+          color: 'red',
           cancel: true,
-          persistent: true,
+          persistent: true
         })
         .onOk(() => {
           try {
             this.$api
-              .put("/transaksi/updateWeb/" + id, {
-                status: "Ditolak",
+              .put('/transaksi/updateWeb/' + id, {
+                status: 'Ditolak'
               })
               .then((res) => {
                 if (res.data.status !== true) {
                   this.$q.notify({
-                    message: "Status Gagal",
-                    color: "red",
-                  });
+                    message: 'Status Gagal',
+                    color: 'red'
+                  })
                 } else {
                   this.$q.notify({
-                    message: "Status Berhasil ",
-                    color: "green",
-                  });
-                  this.getCustomer();
+                    message: 'Status Berhasil ',
+                    color: 'green'
+                  })
+                  this.getCustomer()
                 }
-              });
+              })
           } catch (e) {
-            console.log(e);
-            this.$showNotif("Terjadi kesalahan !", "negative");
+            console.log(e)
+            this.$showNotif('Terjadi kesalahan !', 'negative')
           }
-        });
+        })
     },
-    showDetail(detailTransaksi) {
+    showDetail (detailTransaksi) {
       // console.log(detailTransaksi)
       const newData = detailTransaksi.map((r) => {
         return {
           barang: r.barang,
-          subTotal: r.subtotal,
-        };
-      });
-      this.detail.visible = true;
-      this.detail.rows = newData;
-      console.log(newData);
-    },
-  },
-};
+          subTotal: r.subtotal
+        }
+      })
+      this.detail.visible = true
+      this.detail.rows = newData
+      console.log(newData)
+    }
+  }
+}
 </script>
 
 <style scoped>

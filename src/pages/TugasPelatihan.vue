@@ -89,7 +89,7 @@ export default {
     return {
       card: ref(false),
       pagination: {
-        rowsPerPage: 10,
+        rowsPerPage: 50
       },
       options: [],
       namaCustomer: [],
@@ -99,10 +99,10 @@ export default {
       totalHutang: 0,
       totalLunas: 0,
       columns: [
-          { name: 'no', label: 'No', field: 'no', align: 'center' },
-          { name: 'namaPelatihan', required: true, label: 'Nama Pelatihan', align: 'left', field: 'namaPelatihan', sortable: true },
-          { name: 'soal', required: true, label: 'soal', align: 'left', field: 'soal', sortable: true },
-          { name: 'aksi', label: 'Actions', field: 'aksi', align: 'center' }
+        { name: 'no', label: 'No', field: 'no', align: 'center' },
+        { name: 'namaPelatihan', required: true, label: 'Nama Pelatihan', align: 'left', field: 'namaPelatihan', sortable: true },
+        { name: 'soal', required: true, label: 'soal', align: 'left', field: 'soal', sortable: true },
+        { name: 'aksi', label: 'Actions', field: 'aksi', align: 'center' }
       ],
       rows: []
     }
@@ -111,7 +111,7 @@ export default {
     this.getCustomer()
   },
   methods: {
-    downloadPDF(id) {
+    downloadPDF (id) {
       try {
         this.$api.get('tugas/get-id/' + id)
           .then(res => {
@@ -120,11 +120,11 @@ export default {
             } else {
               const data = res.data.data
               this.file = data.file
-              this.url = "http://localhost:4000/gambar-sertifikat/"+this.file
-              console.log("INI FILE SETAN")
+              this.url = 'http://localhost:4000/gambar-sertifikat/' + this.file
+              console.log('INI FILE SETAN')
               console.log(this.url)
-              const fileName = 'your-pdf-file.pdf';
-              this.downloadFile(this.url, data.jenis_surat);
+              const fileName = 'your-pdf-file.pdf'
+              this.downloadFile(this.url, data.jenis_surat)
             }
           })
       } catch (e) {
@@ -132,13 +132,13 @@ export default {
         this.$showNotif('Terjadi ke !', 'negative')
       }
     },
-    downloadFile(url, fileName) {
-      const link = document.createElement('a');
-      link.href = url;
-      link.setAttribute('download', fileName);
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
+    downloadFile (url, fileName) {
+      const link = document.createElement('a')
+      link.href = url
+      link.setAttribute('download', fileName)
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     },
     getCustomer () {
       try {
